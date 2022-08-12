@@ -25,26 +25,32 @@ const Header = () => {
         let token = localStorage.getItem("usersdatatoken");
 
         const res = await fetch("https://mern-signin-signout.herokuapp.com/logout", {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: token,
-                Accept: "application/json",
-            },
-        });
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: token,
+                    Accept: "application/json",
+                },
+            }
+        );
 
         const data = await res.json();
         console.log(data);
 
         if (data.status === 201) {
-            toast.success("Logged out Successfull 😃", {
+            toast.success("Logged out Successful 😃", {
                 position: "bottom-right",
+                theme: "colored",
             });
             console.log("use logout");
             localStorage.removeItem("usersdatatoken");
             setLoginData(false);
             history("/");
         } else {
+            toast.error("Someting went wrong! 😥", {
+                position: "bottom-right",
+                theme: "colored",
+            });
             console.log("error");
         }
     };
@@ -56,6 +62,7 @@ const Header = () => {
     const goError = () => {
         toast.error("Login First to access it 😢", {
             position: "bottom-right",
+            theme: "colored",
         });
         history("*");
     };
@@ -64,16 +71,20 @@ const Header = () => {
         <>
             <header>
                 <nav>
-                    <NavLink to="/">
+                    <NavLink to="/" style={{ zIndex: 1000 }}>
                         <h1>JP MERN</h1>
                     </NavLink>
                     <div className="avtar">
                         {logindata.ValidUserOne ? (
                             <Avatar
                                 style={{
-                                    background: "salmon",
+                                    // background: "salmon",
+                                    background: "#333",
                                     fontWeight: "bold",
                                     textTransform: "capitalize",
+                                    zIndex: 1000,
+                                    color: "#fff",
+                                    padding: 5,
                                 }}
                                 onClick={handleClick}
                             >
@@ -81,7 +92,12 @@ const Header = () => {
                             </Avatar>
                         ) : (
                             <Avatar
-                                style={{ background: "blue" }}
+                                style={{
+                                    background: "#333",
+                                    zIndex: 1000,
+                                    color: "#fff",
+                                    padding: 5,
+                                }}
                                 onClick={handleClick}
                             />
                         )}

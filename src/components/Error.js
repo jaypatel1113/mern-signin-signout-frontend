@@ -24,7 +24,16 @@ const Error = () => {
                     <NavLink
                         to="/"
                         className="btn btn-primary"
-                        style={{ fontSize: 18 }}
+                        style={{
+                            fontSize: 18,
+                            zIndex: 1000,
+                            marginTop: 10,
+                            borderRadius: 10,
+                            background: "rgba(255,255,255,0.25)",
+                            padding: "10px 20px",
+                            color: "#fff",
+                            textDecoration: "none",
+                        }}
                     >
                         Back To Home Page
                     </NavLink>

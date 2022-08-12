@@ -9,6 +9,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect, useContext, useState } from "react";
 import { LoginContext } from "./components/ContextProvider/Context";
 import { ToastContainer } from "react-toastify";
+import Particles from './components/Particles';
 
 function App() {
     const [data, setData] = useState(false);
@@ -48,8 +49,9 @@ function App() {
 
     return (
         <>
+            <Particles id="tsparticles" />
             {data ? (
-                <>
+                <div className="main">
                     <Header />
 
                     <Routes>
@@ -59,7 +61,7 @@ function App() {
                         <Route path="*" element={<Error />} />
                     </Routes>
                     <ToastContainer />
-                </>
+                </div>
             ) : (
                 <Box
                     sx={{

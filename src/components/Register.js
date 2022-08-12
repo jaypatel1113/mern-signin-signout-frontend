@@ -42,32 +42,44 @@ const Register = () => {
         const { fname, email, profilePic, password, cpassword } = inpval;
 
         if (fname === "") {
-            toast.warning("fname is required!", {
+            toast.warning("Name is required!", {
                 position: "bottom-right",
+                theme: "colored",
             });
         } else if (email === "") {
-            toast.error("email is required!", {
+            toast.error("Email is required!", {
                 position: "bottom-right",
+                theme: "colored",
             });
         } else if (!email.includes("@")) {
             toast.warning("includes @ in your email!", {
                 position: "bottom-right",
+                theme: "colored",
             });
-        } else if (password === "") {
-            toast.error("password is required!", {
+        } else if (profilePic === "") {
+            toast.error("ProfilePic is required!", {
                 position: "bottom-right",
+                theme: "colored",
+            });
+        }else if (password === "") {
+            toast.error("Password is required!", {
+                position: "bottom-right",
+                theme: "colored",
             });
         } else if (password.length < 6) {
-            toast.error("password must be 6 char!", {
+            toast.error("Password must be 6 char!", {
                 position: "bottom-right",
+                theme: "colored",
             });
         } else if (cpassword === "") {
             toast.error("Confirm password is required!", {
                 position: "bottom-right",
+                theme: "colored",
             });
         } else if (password !== cpassword) {
             toast.error("Confirm password is not matching!", {
                 position: "bottom-right",
+                theme: "colored",
             });
         } else {
             // console.log("user registration succesfully done");
@@ -88,8 +100,9 @@ const Register = () => {
                 .post("https://mern-signin-signout.herokuapp.com/register", formData)
                 .then((res) => {
                     console.log(res);
-                    toast.success("Registration Successfully done 😃!", {
+                    toast.success("Registration Successfuly done 😃!", {
                         position: "bottom-right",
+                        theme: "colored",
                     });
                     setInpval({
                         ...inpval,
@@ -102,6 +115,10 @@ const Register = () => {
                     history("/");
                 })
                 .catch((err) => {
+                    toast.error("Someting went wrong! 😥", {
+                        position: "bottom-right",
+                        theme: "colored",
+                    });
                     console.log(err);
                 });
         }
@@ -120,7 +137,10 @@ const Register = () => {
                         </p>
                     </div>
 
-                    <form encType="multipart/form-data">
+                    <form
+                        encType="multipart/form-data"
+                        style={{ zIndex: 1000 }}
+                    >
                         <div className="form_input">
                             <label htmlFor="fname">Name</label>
                             <input
@@ -167,6 +187,10 @@ const Register = () => {
                                 <div
                                     className="showpass"
                                     onClick={() => setPassShow(!passShow)}
+                                    style={{
+                                        background: "transparent",
+                                        color: "#fff",
+                                    }}
                                 >
                                     {!passShow ? "Show" : "Hide"}
                                 </div>
@@ -187,6 +211,10 @@ const Register = () => {
                                 <div
                                     className="showpass"
                                     onClick={() => setCPassShow(!cpassShow)}
+                                    style={{
+                                        background: "transparent",
+                                        color: "#fff",
+                                    }}
                                 >
                                     {!cpassShow ? "Show" : "Hide"}
                                 </div>

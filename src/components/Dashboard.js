@@ -15,24 +15,29 @@ const Dashboard = () => {
     const DashboardValid = async () => {
         let token = localStorage.getItem("usersdatatoken");
 
-        const res = await fetch("https://mern-signin-signout.herokuapp.com/validuser", {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: token,
-            },
-        });
+        const res = await fetch(
+            "https://mern-signin-signout.herokuapp.com/validuser",
+            {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: token,
+                },
+            }
+        );
 
         const data = await res.json();
 
         if (data.status === 401 || !data) {
             toast.error("Login First to access it 😢", {
                 position: "bottom-right",
+                theme: "colored",
             });
             history("*");
         } else {
-            toast.success("Logged In Successfull 😃", {
+            toast.success("Logged In Successful 😃", {
                 position: "bottom-right",
+                theme: "colored",
             });
             console.log("user verify");
             setLoginData(data);
@@ -71,13 +76,14 @@ const Dashboard = () => {
                             height: "150px",
                             marginTop: 20,
                             borderRadius: "50%",
+                            zIndex: 1000,
                         }}
                         alt=""
                     />
-                    <h3>
+                    <h3 style={{ zIndex: 1000 }}>
                         Name : {logindata ? logindata.ValidUserOne.fname : ""}
                     </h3>
-                    <h3>
+                    <h3 style={{ zIndex: 1000 }}>
                         Email : {logindata ? logindata.ValidUserOne.email : ""}
                     </h3>
                 </div>
@@ -87,7 +93,7 @@ const Dashboard = () => {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        height: "100vh",
+                        height: "calc(100vh - 80px)",
                     }}
                 >
                     Loading... &nbsp;

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -6,5 +6,45 @@
 }
 
 body{
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: #000;
+    color: #ddd;
 }
+
+.main {
+    z-index: 1000000;
+}
+
+#tsparticles {
+    z-index: -10000 !important;
+    overflow: hidden;
+}
+
+canvas {
+    z-index: -1000000 !important;
+}
+
+input {
+    background: transparent;
+    color: #ddd;
+}
+
+ul {
+    background: rgba(34, 34, 34, 1);
+    color: rgb(255, 255, 255, 0.9);
+}
+
+::-ms-browse {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    color: #fff;
+    padding: 5px 13px;
+}
+
+::-webkit-file-upload-button{
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    color: #fff;
+    padding: 5px 13px;
+  }

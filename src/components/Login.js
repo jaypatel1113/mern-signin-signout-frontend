@@ -31,34 +31,41 @@ const Login = () => {
         const { email, password } = inpval;
 
         if (email === "") {
-            toast.error("email is required!", {
+            toast.error("Email is required!", {
                 position: "bottom-right",
+                theme: "colored",
             });
         } else if (!email.includes("@")) {
             toast.warning("includes @ in your email!", {
                 position: "bottom-right",
+                theme: "colored",
             });
         } else if (password === "") {
-            toast.error("password is required!", {
+            toast.error("Password is required!", {
                 position: "bottom-right",
+                theme: "colored",
             });
         } else if (password.length < 6) {
-            toast.error("password must be 6 char!", {
+            toast.error("Password must be 6 char!", {
                 position: "bottom-right",
+                theme: "colored",
             });
         } else {
             // console.log("user login succesfully done");
 
-            const data = await fetch("https://mern-signin-signout.herokuapp.com/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    email,
-                    password,
-                }),
-            });
+            const data = await fetch(
+                "https://mern-signin-signout.herokuapp.com/login",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        email,
+                        password,
+                    }),
+                }
+            );
 
             const res = await data.json();
             //  console.log(res);
@@ -70,6 +77,7 @@ const Login = () => {
             } else {
                 toast.error("Invalid Credentials 😥", {
                     position: "bottom-right",
+                    theme: "colored",
                 });
             }
         }
@@ -84,7 +92,7 @@ const Login = () => {
                         <p>Hi, we are you glad you are back. Please login.</p>
                     </div>
 
-                    <form>
+                    <form style={{ zIndex: 1000 }}>
                         <div className="form_input">
                             <label htmlFor="email">Email</label>
                             <input
@@ -110,6 +118,10 @@ const Login = () => {
                                 <div
                                     className="showpass"
                                     onClick={() => setPassShow(!passShow)}
+                                    style={{
+                                        background: "transparent",
+                                        color: "#fff",
+                                    }}
                                 >
                                     {!passShow ? "Show" : "Hide"}
                                 </div>
