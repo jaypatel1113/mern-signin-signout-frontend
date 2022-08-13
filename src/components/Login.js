@@ -136,7 +136,6 @@ const Login = () => {
                             <NavLink to="/register">Sign Up</NavLink>
                         </p>
                     </form>
-                    <ToastContainer />
                 </div>
             </section>
         </>

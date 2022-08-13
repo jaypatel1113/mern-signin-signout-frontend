@@ -115,10 +115,18 @@ const Register = () => {
                     history("/");
                 })
                 .catch((err) => {
-                    toast.error("Someting went wrong! 😥", {
-                        position: "bottom-right",
-                        theme: "colored",
-                    });
+                    // console.log(err.response.status);
+                    if(err.response.status === 409) {
+                        toast.error("Email already exists! 😥", {
+                            position: "bottom-right",
+                            theme: "colored",
+                        });
+                    } else {
+                        toast.error("Someting went wrong! 😥", {
+                            position: "bottom-right",
+                            theme: "colored",
+                        });
+                    }
                     console.log(err);
                 });
         }
