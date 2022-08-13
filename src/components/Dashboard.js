@@ -31,16 +31,10 @@ const Dashboard = () => {
         const data = await res.json();
 
         if (data.status === 401 || !data) {
-            toast.error("Login First to access it 😢", {
-                position: "bottom-right",
-                theme: "colored",
-            });
+            toast.error("Login First to access it 😢");
             history("*");
         } else {
-            toast.success("Logged In Successful 😃", {
-                position: "bottom-right",
-                theme: "colored",
-            });
+            toast.success("Logged In Successful 😃");
             console.log("user verify");
             setLoginData(data);
             history("/dash");
@@ -80,7 +74,7 @@ const Dashboard = () => {
                             borderRadius: "50%",
                             zIndex: 1000,
                         }}
-                        alt=""
+                        alt="Picture deleted on server"
                     />
                     <h3 style={{ zIndex: 1000, fontSize: "3rem" }}>
                         Name : {logindata ? logindata.ValidUserOne.fname : ""}

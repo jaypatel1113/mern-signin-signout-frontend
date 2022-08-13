@@ -43,45 +43,21 @@ const Register = () => {
         const { fname, email, profilePic, password, cpassword } = inpval;
 
         if (fname === "") {
-            toast.warning("Name is required!", {
-                position: "bottom-right",
-                theme: "colored",
-            });
+            toast.warning("Name is required!");
         } else if (email === "") {
-            toast.error("Email is required!", {
-                position: "bottom-right",
-                theme: "colored",
-            });
+            toast.error("Email is required!");
         } else if (!email.includes("@")) {
-            toast.warning("includes @ in your email!", {
-                position: "bottom-right",
-                theme: "colored",
-            });
+            toast.warning("includes @ in your email!");
         } else if (profilePic === "") {
-            toast.error("ProfilePic is required!", {
-                position: "bottom-right",
-                theme: "colored",
-            });
+            toast.error("ProfilePic is required!");
         }else if (password === "") {
-            toast.error("Password is required!", {
-                position: "bottom-right",
-                theme: "colored",
-            });
+            toast.error("Password is required!");
         } else if (password.length < 6) {
-            toast.error("Password must be 6 char!", {
-                position: "bottom-right",
-                theme: "colored",
-            });
+            toast.error("Password: min 6 char require!");
         } else if (cpassword === "") {
-            toast.error("Confirm password is required!", {
-                position: "bottom-right",
-                theme: "colored",
-            });
+            toast.error("Confirm password is required!");
         } else if (password !== cpassword) {
-            toast.error("Confirm password is not matching!", {
-                position: "bottom-right",
-                theme: "colored",
-            });
+            toast.error("Confirm password is not matching!");
         } else {
             // console.log("user registration succesfully done");
 

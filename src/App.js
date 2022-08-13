@@ -2,6 +2,8 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect, useContext, useState } from "react";
 import { ToastContainer } from "react-toastify";
 
+import 'react-toastify/dist/ReactToastify.css';
+
 import Header from "./components/Header";
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -63,7 +65,11 @@ function App() {
                         <Route path="/dash" element={<Dashboard />} />
                         <Route path="*" element={<Error />} />
                     </Routes>
-                    <ToastContainer />
+                    <ToastContainer 
+                        theme="colored"
+                        position="bottom-right"
+                        style={{fontSize: "14px"}}
+                    />
                 </div>
             ) : (
                 <Box

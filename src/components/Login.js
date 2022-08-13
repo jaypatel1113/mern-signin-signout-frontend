@@ -32,25 +32,13 @@ const Login = () => {
         const { email, password } = inpval;
 
         if (email === "") {
-            toast.error("Email is required!", {
-                position: "bottom-right",
-                theme: "colored",
-            });
+            toast.error("Email is required!");
         } else if (!email.includes("@")) {
-            toast.warning("includes @ in your email!", {
-                position: "bottom-right",
-                theme: "colored",
-            });
+            toast.warning("includes @ in your email!");
         } else if (password === "") {
-            toast.error("Password is required!", {
-                position: "bottom-right",
-                theme: "colored",
-            });
+            toast.error("Password is required!");
         } else if (password.length < 6) {
-            toast.error("Password must be 6 char!", {
-                position: "bottom-right",
-                theme: "colored",
-            });
+            toast.error("Password: min 6 char require!");
         } else {
             // console.log("user login succesfully done");
 

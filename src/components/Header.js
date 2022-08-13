@@ -42,19 +42,13 @@ const Header = () => {
         console.log(data);
 
         if (data.status === 201) {
-            toast.success("Logged out Successful 😃", {
-                position: "bottom-right",
-                theme: "colored",
-            });
+            toast.success("Logged out Successful 😃");
             console.log("use logout");
             localStorage.removeItem("usersdatatoken");
             setLoginData(false);
             history("/");
         } else {
-            toast.error("Someting went wrong! 😥", {
-                position: "bottom-right",
-                theme: "colored",
-            });
+            toast.error("Someting went wrong! 😥");
             console.log("error");
         }
     };
