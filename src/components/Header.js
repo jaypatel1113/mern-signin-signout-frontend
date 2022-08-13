@@ -84,7 +84,8 @@ const Header = () => {
                                     textTransform: "capitalize",
                                     zIndex: 1000,
                                     color: "#fff",
-                                    padding: 5,
+                                    padding: "0.5rem",
+                                    fontSize: "1.7rem"
                                 }}
                                 onClick={handleClick}
                             >
@@ -96,7 +97,7 @@ const Header = () => {
                                     background: "#333",
                                     zIndex: 1000,
                                     color: "#fff",
-                                    padding: 5,
+                                    padding: "0.5rem",
                                 }}
                                 onClick={handleClick}
                             />

@@ -61,7 +61,7 @@ const Dashboard = () => {
                         flexDirection: "column",
                         alignItems: "center",
                         justifyContent: "center",
-                        minHeight: "calc(100vh - 80px)",
+                        minHeight: "calc(100vh - 8rem - 1.5rem)",
                         gap: "15px",
                     }}
                 >
@@ -72,18 +72,18 @@ const Dashboard = () => {
                                 : ""
                         }`}
                         style={{
-                            width: "150px",
-                            height: "150px",
+                            width: "15rem",
+                            height: "15rem",
                             marginTop: 20,
                             borderRadius: "50%",
                             zIndex: 1000,
                         }}
                         alt=""
                     />
-                    <h3 style={{ zIndex: 1000 }}>
+                    <h3 style={{ zIndex: 1000, fontSize: "3rem" }}>
                         Name : {logindata ? logindata.ValidUserOne.fname : ""}
                     </h3>
-                    <h3 style={{ zIndex: 1000 }}>
+                    <h3 style={{ zIndex: 1000, fontSize: "3rem" }}>
                         Email : {logindata ? logindata.ValidUserOne.email : ""}
                     </h3>
                 </div>
