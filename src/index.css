@@ -21,15 +21,6 @@ html {
     z-index: 1000000;
 }
 
-/* #tsparticles {
-    z-index: -10000 !important;
-    overflow: hidden;
-}
-
-canvas {
-    z-index: -1000000 !important;
-} */
-
 input {
     background: transparent;
     color: #ddd;
@@ -65,7 +56,6 @@ ul li {
     border: none;
     outline: none;
 }
-
 
 @media screen and (max-width: 998px) {
     html {

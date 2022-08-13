@@ -3,6 +3,9 @@ import { loadSlim } from "tsparticles-slim"; // loads tsparticles-slim
 //import { loadFull } from "tsparticles"; // loads tsparticles
 import { useCallback, useMemo } from "react";
 
+import config2 from "./ParticleConfig/config2.json";
+import config1 from "./ParticleConfig/config1.json";
+
 // tsParticles Repository: https://github.com/matteobruni/tsparticles
 // tsParticles Website: https://particles.js.org/
 const ParticlesComponent = (props) => {
@@ -10,116 +13,12 @@ const ParticlesComponent = (props) => {
     const options = useMemo(() => {
         // using an empty options object will load the default options, which are static particles with no background and 3px radius, opacity 100%, white color
         // all options can be found here: https://particles.js.org/docs/interfaces/Options_Interfaces_IOptions.IOptions.html
-        return {
-            particles: {
-                number: {
-                    value: 100,
-                    density: {
-                        enable: true,
-                        value_area: 800,
-                    },
-                },
-                color: {
-                    value: "#fcf6f4",
-                },
-                shape: {
-                    type: "circle",
-                    stroke: {
-                        width: 0,
-                        color: "#000000",
-                    },
-                    polygon: {
-                        nb_sides: 5,
-                    },
-                    image: {
-                        src: "img/github.svg",
-                        width: 100,
-                        height: 100,
-                    },
-                },
-                opacity: {
-                    value: 1,
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 1,
-                        opacity_min: 0,
-                        sync: false,
-                    },
-                },
-                size: {
-                    value: 3,
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 3,
-                        size_min: 0.4,
-                        sync: false,
-                    },
-                },
-                line_linked: {
-                    enable: false,
-                    distance: 150,
-                    color: "#ffffff",
-                    opacity: 0.4,
-                    width: 1,
-                },
-                move: {
-                    enable: true,
-                    speed: 3,
-                    direction: "none",
-                    random: true,
-                    straight: false,
-                    out_mode: "out",
-                    bounce: false,
-                    attract: {
-                        enable: false,
-                        rotateX: 600,
-                        rotateY: 600,
-                    },
-                },
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: {
-                        enable: false,
-                        mode: "bubble",
-                    },
-                    onclick: {
-                        enable: true,
-                        mode: "repulse",
-                    },
-                    resize: true,
-                },
-                modes: {
-                    grab: {
-                        distance: 400,
-                        line_linked: {
-                            opacity: 1,
-                        },
-                    },
-                    bubble: {
-                        distance: 250,
-                        size: 0,
-                        duration: 2,
-                        opacity: 0,
-                        speed: 3,
-                    },
-                    repulse: {
-                        distance: 400,
-                        duration: 0.4,
-                    },
-                    push: {
-                        particles_nb: 4,
-                    },
-                    remove: {
-                        particles_nb: 2,
-                    },
-                },
-            },
-            retina_detect: true,
-        };
+        return config1;
+    }, []);
+    const options1 = useMemo(() => {
+        // using an empty options object will load the default options, which are static particles with no background and 3px radius, opacity 100%, white color
+        // all options can be found here: https://particles.js.org/docs/interfaces/Options_Interfaces_IOptions.IOptions.html
+        return config2;
     }, []);
 
     // useCallback is not mandatory, but it's recommended since this callback can be memoized if static
@@ -129,7 +28,11 @@ const ParticlesComponent = (props) => {
     }, []);
 
     // setting an id can be useful for identifying the right particles component, this is useful for multiple instances or reusable components
-    return <Particles id={props.id} init={particlesInit} options={options} />;
+    return props.tog ? (
+        <Particles id={props.id} init={particlesInit} options={options} />
+    ) : (
+        <Particles id={props.id} init={particlesInit} options={options1} />
+    );
 };
 
 export default ParticlesComponent;

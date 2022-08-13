@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
+
 import "react-toastify/dist/ReactToastify.css";
 import "./mix.css";
 
@@ -84,8 +85,6 @@ const Register = () => {
         } else {
             // console.log("user registration succesfully done");
 
-            // const datatosent = JSON.stringify({fname, email, password, cpassword});
-            // let fi̥nald = datatosent + "" + profilePic.name;
             console.log(profilePic);
             console.log(profilePic.name);
             const formData = new FormData();
@@ -97,7 +96,7 @@ const Register = () => {
             // console.log(formData.entries());
 
             axios
-                .post("https://mern-signin-signout.herokuapp.com/register", formData)
+                .post("https://mern-signinout.herokuapp.com/register", formData)
                 .then((res) => {
                     console.log(res);
                     toast.success("Registration Successfuly done 😃!", {

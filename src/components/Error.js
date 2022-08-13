@@ -7,7 +7,7 @@ const Error = () => {
             <div className="container">
                 <div
                     style={{
-                        minHeight: "85vh",
+                        minHeight: "calc(100vh - 8rem - 1.5rem)",
                         display: "flex",
                         justifyContent: "center",
                         flexDirection: "column",
@@ -20,7 +20,7 @@ const Error = () => {
                         style={{ width: "50rem", marginBottom: "2rem" }}
                     />
                     {/* <h1 className="mb-3">404 ERROR </h1> */}
-                    <h2 className="mb-3">PAGE NOT FOUND</h2>
+                    <h2 className="mb-3" style={{fontSize: "3.4rem"}}>PAGE NOT FOUND</h2>
                     <NavLink
                         to="/"
                         className="btn btn-primary"

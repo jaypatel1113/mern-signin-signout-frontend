@@ -1,15 +1,16 @@
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { useEffect, useContext, useState } from "react";
+import { ToastContainer } from "react-toastify";
+
 import Header from "./components/Header";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
 import Error from "./components/Error";
+import { LoginContext } from "./components/ContextProvider/Context";
+
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
-import { Routes, Route, useNavigate } from "react-router-dom";
-import { useEffect, useContext, useState } from "react";
-import { LoginContext } from "./components/ContextProvider/Context";
-import { ToastContainer } from "react-toastify";
-import Particles from './components/Particles';
 
 function App() {
     const [data, setData] = useState(false);
@@ -21,13 +22,16 @@ function App() {
     const DashboardValid = async () => {
         let token = localStorage.getItem("usersdatatoken");
 
-        const res = await fetch("https://mern-signin-signout.herokuapp.com/validuser", {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: token,
-            },
-        });
+        const res = await fetch(
+            "https://mern-signinout.herokuapp.com/validuser",
+            {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: token,
+                },
+            }
+        );
 
         const data = await res.json();
 
@@ -49,7 +53,6 @@ function App() {
 
     return (
         <>
-            <Particles id="tsparticles" />
             {data ? (
                 <div className="main">
                     <Header />
@@ -69,6 +72,7 @@ function App() {
                         justifyContent: "center",
                         alignItems: "center",
                         height: "100vh",
+                        fontSize: "2rem",
                     }}
                 >
                     Loading... &nbsp;

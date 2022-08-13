@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
+
 import "./mix.css";
 
 const Login = () => {
@@ -54,7 +55,7 @@ const Login = () => {
             // console.log("user login succesfully done");
 
             const data = await fetch(
-                "https://mern-signin-signout.herokuapp.com/login",
+                "https://mern-signinout.herokuapp.com/login",
                 {
                     method: "POST",
                     headers: {

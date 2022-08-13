@@ -1,14 +1,19 @@
-import React, { useContext } from "react";
-import Avatar from "@mui/material/Avatar";
-import "./header.css";
-import { LoginContext } from "./ContextProvider/Context";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
+import React, { useContext, useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import Avatar from "@mui/material/Avatar";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+
+import { LoginContext } from "./ContextProvider/Context";
+import Particles from "./Particles";
+
+import "./header.css";
+
 const Header = () => {
     const { logindata, setLoginData } = useContext(LoginContext);
+    const [tog, setTog] = useState(false);
 
     const history = useNavigate();
 
@@ -24,15 +29,14 @@ const Header = () => {
     const logoutuser = async () => {
         let token = localStorage.getItem("usersdatatoken");
 
-        const res = await fetch("https://mern-signin-signout.herokuapp.com/logout", {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: token,
-                    Accept: "application/json",
-                },
-            }
-        );
+        const res = await fetch("https://mern-signinout.herokuapp.com/logout", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: token,
+                Accept: "application/json",
+            },
+        });
 
         const data = await res.json();
         console.log(data);
@@ -69,11 +73,17 @@ const Header = () => {
 
     return (
         <>
+            <Particles id="tsparticles" tog={tog} />
             <header>
                 <nav>
                     <NavLink to="/" style={{ zIndex: 1000 }}>
                         <h1>JP MERN</h1>
                     </NavLink>
+                    <span
+                        onClick={() => setTog(!tog)}
+                        style={{ zIndex: 1000, cursor: "pointer" }}
+                        className={`${tog ? "active" : ""}`}
+                    ></span>
                     <div className="avtar">
                         {logindata.ValidUserOne ? (
                             <Avatar
@@ -85,7 +95,7 @@ const Header = () => {
                                     zIndex: 1000,
                                     color: "#fff",
                                     padding: "0.5rem",
-                                    fontSize: "1.7rem"
+                                    fontSize: "1.7rem",
                                 }}
                                 onClick={handleClick}
                             >

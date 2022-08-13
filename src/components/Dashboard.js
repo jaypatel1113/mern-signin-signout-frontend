@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
 import { LoginContext } from "./ContextProvider/Context";
+
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
-import { toast } from "react-toastify";
 
 const Dashboard = () => {
     const { logindata, setLoginData } = useContext(LoginContext);
@@ -16,7 +18,7 @@ const Dashboard = () => {
         let token = localStorage.getItem("usersdatatoken");
 
         const res = await fetch(
-            "https://mern-signin-signout.herokuapp.com/validuser",
+            "https://mern-signinout.herokuapp.com/validuser",
             {
                 method: "GET",
                 headers: {
@@ -68,7 +70,7 @@ const Dashboard = () => {
                     <img
                         src={`${
                             logindata
-                                ? `https://mern-signin-signout.herokuapp.com/public/images/${logindata.ValidUserOne.profilePic}`
+                                ? `https://mern-signinout.herokuapp.com/public/images/${logindata.ValidUserOne.profilePic}`
                                 : ""
                         }`}
                         style={{
@@ -94,6 +96,7 @@ const Dashboard = () => {
                         justifyContent: "center",
                         alignItems: "center",
                         height: "calc(100vh - 8rem - 1.5rem)",
+                        fontSize: "2rem",
                     }}
                 >
                     Loading... &nbsp;
