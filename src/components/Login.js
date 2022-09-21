@@ -120,9 +120,17 @@ const Login = () => {
                         <button className="btn" onClick={loginuser}>
                             Login
                         </button>
-                        <p>
+                        {/* <p style={{marginTop: "3rem"}}>
                             Don't have an Account?
                             <NavLink to="/register">Sign Up</NavLink>
+                        </p>
+                        <p style={{marginTop: "3rem"}}>
+                            <span style={{marginLeft: "2rem"}}>Forget Password?</span>
+                            <NavLink to="/register" style={{marginLeft: "4rem"}}>Reset</NavLink>
+                        </p> */}
+                        <p style={{display: "flex", justifyContent: "space-between"}}>
+                            <NavLink to="/register" style={{width: "10rem"}}>Sign Up</NavLink>
+                            <NavLink to="/password-reset" style={{width: "10rem"}}>Reset</NavLink>
                         </p>
                     </form>
                 </div>

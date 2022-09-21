@@ -209,7 +209,7 @@ const Register = () => {
                         </button>
                         <p>
                             Already have an account?
-                            <NavLink to="/">Log In</NavLink>
+                            <NavLink to="/" style={{marginLeft: "1.5rem"}}>Log In</NavLink>
                         </p>
                     </form>
                 </div>
