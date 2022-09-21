@@ -55,6 +55,7 @@ const ForgotPassword = () => {
 
             if (data.status === 201) {
                 setPassword("");
+                history("/");
                 toast.success("Password Update Successfully!");
             } else {
                 toast.error("Token Expired: generate new Link!");
@@ -94,7 +95,7 @@ const ForgotPassword = () => {
                                 <button className="btn" onClick={sendpassword}>
                                     Update
                                 </button>
-                                <p style={{width: "20rem", textAlign: "center", margin: "2.5rem auto 0"}}>
+                                {/* <p style={{width: "20rem", textAlign: "center", margin: "2.5rem auto 0"}}>
                                     <NavLink
                                         to="/"
                                         className="btn btn-primary"
@@ -110,7 +111,7 @@ const ForgotPassword = () => {
                                     >
                                         Back to Home
                                     </NavLink>
-                                </p>
+                                </p> */}
                             </form>
                         </div>
                     </section>

@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const PasswordReset = () => {
 
     const [email, setEmail] = useState("");
+
+    const history = useNavigate();
 
     const setVal = (e) => {
         setEmail(e.target.value)
@@ -29,6 +32,7 @@ const PasswordReset = () => {
 
             if (data.status === 201) {
                 setEmail("");
+                history("/");
                 toast.success("Email sent Successfully! (check spam)");
             } else if (data.status === 404) {
                 toast.error("Email not Registered");
