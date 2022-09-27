@@ -27,7 +27,7 @@ function App() {
         let token = localStorage.getItem("usersdatatoken");
 
         const res = await fetch(
-            "https://mern-signinout.herokuapp.com/validuser",
+            "https://mern-signin-signout-backend.onrender.com/validuser",
             {
                 method: "GET",
                 headers: {

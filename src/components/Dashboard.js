@@ -18,7 +18,7 @@ const Dashboard = () => {
         let token = localStorage.getItem("usersdatatoken");
 
         const res = await fetch(
-            "https://mern-signinout.herokuapp.com/validuser",
+            "https://mern-signin-signout-backend.onrender.com/validuser",
             {
                 method: "GET",
                 headers: {
@@ -64,7 +64,7 @@ const Dashboard = () => {
                     <img
                         src={`${
                             logindata
-                                ? `https://mern-signinout.herokuapp.com/public/images/${logindata.ValidUserOne.profilePic}`
+                                ? `https://mern-signin-signout-backend.onrender.com/public/images/${logindata.ValidUserOne.profilePic}`
                                 : ""
                         }`}
                         style={{
