@@ -29,7 +29,7 @@ const Header = () => {
     const logoutuser = async () => {
         let token = localStorage.getItem("usersdatatoken");
 
-        const res = await fetch("https://mern-signin-signout-backend.onrender.com/logout", {
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/logout`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

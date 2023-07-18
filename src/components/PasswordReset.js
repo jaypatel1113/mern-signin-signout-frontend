@@ -20,7 +20,7 @@ const PasswordReset = () => {
         } else if (!email.includes("@")) {
             toast.warning("Enter valid Email!");
         } else {
-            const res = await fetch("https://mern-signin-signout-backend.onrender.com/sendpasswordlink", {
+            const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/sendpasswordlink`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

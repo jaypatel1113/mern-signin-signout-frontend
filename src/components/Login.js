@@ -43,7 +43,7 @@ const Login = () => {
             // console.log("user login succesfully done");
 
             const data = await fetch(
-                "https://mern-signin-signout-backend.onrender.com/login",
+                `${process.env.REACT_APP_BACKEND_URL}/login`,
                 {
                     method: "POST",
                     headers: {

@@ -18,7 +18,7 @@ const Dashboard = () => {
         let token = localStorage.getItem("usersdatatoken");
 
         const res = await fetch(
-            "https://mern-signin-signout-backend.onrender.com/validuser",
+            `${process.env.REACT_APP_BACKEND_URL}/validuser`,
             {
                 method: "GET",
                 headers: {

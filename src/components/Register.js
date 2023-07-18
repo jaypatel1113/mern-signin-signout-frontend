@@ -72,7 +72,7 @@ const Register = () => {
             // console.log(formData.entries());
 
             axios
-                .post("https://mern-signin-signout-backend.onrender.com/register", formData)
+                .post(`${process.env.REACT_APP_BACKEND_URL}/register`, formData)
                 .then((res) => {
                     console.log(res);
                     toast.success("Registration Successfuly done 😃!", {
